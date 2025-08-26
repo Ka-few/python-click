@@ -18,14 +18,13 @@ class Property(Base):
     house_num = Column(String(7))
     rent_amount = Column(Float(10,4))
     
-class Rental_contract(Base):
+class RentalContract(Base):
     __tablename__="rental_contracts"
     id = Column(Integer, primary_key=True)
     tenant_id = Column(Integer, ForeignKey("tenants.id"))
     property_id = Column(Integer, ForeignKey("properties.id"))
     start_date = Column(DateTime)
     
-engine = create_engine("sqlite:///rentals.db")
+engine = create_engine("sqlite:///rentals.db", echo=True)
+SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 Base.metadata.create_all(bind=engine)
-Session = sessionmaker(bind=engine)
-Session = Session()

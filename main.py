@@ -1,3 +1,4 @@
+from datetime import datetime
 import click
 from crud import add_tenant, list_tenants, delete_tenant, add_property, list_property, delete_property, add_rental_contract, list_rental_contracts, delete_rental_contract
 
@@ -83,9 +84,10 @@ def property_menu():
             click.secho("Adding a new Property", fg="yellow")
             name = click.prompt("Enter Property Name")
             location = click.prompt("Enter property Location")
+            house_num = click.prompt("Enter the House number")
             rent_amount = click.prompt("Enter Property Rent Amount")
             try:
-                add_property(name, location, rent_amount)
+                add_property(name, location, house_num, rent_amount)
                 click.secho(f"Property {name} added successfully!", fg="green")
             except Exception as e:
                 click.secho(f"Error adding property, {e}", fg="red")
@@ -130,6 +132,7 @@ def rental_contracts_menu():
             property_id = click.prompt("Enter Property ID")
             start_date = click.prompt("Enter Start date")
             try:
+                start_date = datetime.strptime(start_date, "%Y-%m-%d")
                 add_rental_contract(tenant_id, property_id, start_date)
                 click.secho(f"Rental contract added successfully!", fg="green")
             except Exception as e:

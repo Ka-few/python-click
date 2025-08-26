@@ -1,28 +1,63 @@
-from models import Tenant, Property, Rental_contract, Session
+from models import Tenant, Property, RentalContract, SessionLocal
+
+session = SessionLocal()
 
 def add_tenant(name, gender, email):
-    pass
+    tenant = Tenant(name=name, gender=gender, email=email)
+    session.add(tenant)
+    session.commit()
+    return tenant
 
 def list_tenants():
-    pass
+    return session.query(Tenant).all()
 
-def delete_tenant():
-    pass
+def find_tenant_by_id(tenant_id):
+    return session.query(Tenant).filter_by(id=tenant_id).first()
 
-def add_property():
-    pass
+def delete_tenant(tenant_id):
+    tenant = find_tenant_by_id(tenant_id)
+    if tenant:
+        session.delete(tenant)
+        session.commit()
+        return True
+    return False
+
+def add_property(name, location, house_num, rent_amount):
+    prop = Property(name=name, location=location, house_num=house_num, rent_amount=rent_amount)
+    session.add(prop)
+    session.commit()
+    return prop
 
 def list_property():
-    pass
+    return session.query(Property).all()
+
+def find_property_by_id(property_id):
+    return session.query(Property).filter_by(id=property_id).first()
 
 def delete_property():
-    pass
+    prop = find_property_by_id(property_id)
+    if prop:
+        session.delete(prop)
+        session.commit()
+        return True
+    return False
 
-def add_rental_contract():
-    pass
+def add_rental_contract(tenant_id, property_id, start_date):
+    contract = RentalContract(tenant_id=tenant_id, property_id=property_id, start_date=start_date)
+    session.add(contract)
+    session.commit()
+    return contract
 
 def list_rental_contracts():
-    pass
+    return session.query(RentalContract).all()
 
-def delete_rental_contract():
-    pass
+def find_contract_by_id(contract_id):
+    return session.query(RentalContract).filter_by(id=contract_id).first()
+
+def delete_rental_contract(contract_id):
+    contract = find_contract_by_id(contract_id)
+    if contract:
+        session.delete(contract)
+        session.commit()
+        return True
+    return False
