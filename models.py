@@ -27,4 +27,4 @@ class RentalContract(Base):
     
 engine = create_engine("sqlite:///rentals.db", echo=True)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)

@@ -52,7 +52,7 @@ def tenants_menu():
             tenants = list_tenants()
             if tenants:
                 for t in tenants:
-                    click.secho(f"ID: {t[0]} | Name: {t[1]} | Gender: {t[2]} | Email: {t[3]}", fg="blue")
+                    click.secho(f"ID: {t.id} | Name: {t.name} | Gender: {t.gender} | Email: {t.email}", fg="blue")
             else:
                 click.secho("No tenants found.", fg="red")
 
@@ -97,7 +97,7 @@ def property_menu():
             properties = list_property()
             if properties:
                 for p in properties:
-                    click.secho(f"ID: {p[0]} | Name: {p[1]} | Location: {p[2]} | Rent Amount: {p[3]}", fg="blue")
+                    click.secho(f"ID: {p.id} | Name: {p.name} | Location: {p.location} | Rent Amount: {p.rent_amount}", fg="blue")
             else:
                 click.secho("No properties found.", fg="red")
 
@@ -143,7 +143,7 @@ def rental_contracts_menu():
             rental_contracts = list_rental_contracts()
             if rental_contracts:
                 for r in rental_contracts:
-                    click.secho(f"ID: {r[0]} | Tenant ID: {r[1]} | Property ID: {r[2]} | Start Date: {r[3]}", fg="blue")
+                    click.secho(f"ID: {r.id} | Tenant ID: {r.tenant_id} | Property ID: {r.property_id} | Start Date: {r.start_date}", fg="blue")
             else:
                 click.secho("No Rental contracts found.", fg="red")
 

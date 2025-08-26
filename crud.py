@@ -34,7 +34,7 @@ def list_property():
 def find_property_by_id(property_id):
     return session.query(Property).filter_by(id=property_id).first()
 
-def delete_property():
+def delete_property(property_id):
     prop = find_property_by_id(property_id)
     if prop:
         session.delete(prop)
