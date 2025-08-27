@@ -25,6 +25,9 @@ class RentalContract(Base):
     property_id = Column(Integer, ForeignKey("properties.id"))
     start_date = Column(DateTime)
     
+    tenant = relationship("Tenant", backref="contracts")
+    property = relationship("Property", backref="contracts")
+    
 engine = create_engine("sqlite:///rentals.db", echo=True)
 SessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 # Base.metadata.create_all(bind=engine)

@@ -49,7 +49,13 @@ def add_rental_contract(tenant_id, property_id, start_date):
     return contract
 
 def list_rental_contracts():
-    return session.query(RentalContract).all()
+    contracts = session.query(RentalContract).all()
+    
+    for contract in contracts:
+        tenant_name = contract.tenant.name if contract.tenant else "Unknown"
+        house_num = contract.property.house_num if contract.property else "Unknown"
+        print(f"Tenant: {tenant_name}, Property: {house_num}")
+    return contracts
 
 def find_contract_by_id(contract_id):
     return session.query(RentalContract).filter_by(id=contract_id).first()

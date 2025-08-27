@@ -37,7 +37,7 @@ def tenants_menu():
         tenant_option = click.prompt("Select Tenants Option", type=int)
 
         if tenant_option == 1:
-            click.secho("Adding a new Tenant", fg="yellow")
+            click.secho("Adding a new Tenant", fg="green")
             name = click.prompt("Enter Tenant Name")
             gender = click.prompt("Enter Tenant Gender")
             email = click.prompt("Enter Tenant Email")
