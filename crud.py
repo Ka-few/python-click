@@ -2,6 +2,7 @@ from models import Tenant, Property, RentalContract, SessionLocal
 
 session = SessionLocal()
 
+
 def add_tenant(name, gender, email):
     tenant = Tenant(name=name, gender=gender, email=email)
     session.add(tenant)

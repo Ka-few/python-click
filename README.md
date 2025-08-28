@@ -1,5 +1,6 @@
 # Rental Management System (Python CLI + ORM)
-A small rental management system built with Python’s standard library (`sqlalchemy`) and a lightweight ORM pattern. supporting alembic migration.
+## by Francis Njoroge
+A small rental management system built with Python’s standard library (`sqlalchemy`) and a lightweight ORM pattern. 
 
 ## Features (planned)
 - Manage Customers
