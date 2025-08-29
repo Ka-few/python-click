@@ -2,11 +2,10 @@
 ## by Francis Njoroge
 A small rental management system built with Python’s standard library (`sqlalchemy`) and a lightweight ORM pattern. 
 
-## Features (planned)
+## Features 
 - Manage Customers
 - Manage Properties
 - Manage Rental Contracts
-- Validation (unique emails, active rentals, etc.)
 - CLI menus for CRUD operations
 
 ## Setup
